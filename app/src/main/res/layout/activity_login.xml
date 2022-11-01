@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.LoginActivity"
+    android:gravity="center_horizontal"
     >
 
     <ImageView
         android:id="@+id/ayam_goreng"
-        android:layout_width="match_parent"
+        android:layout_width="377dp"
         android:layout_height="377dp"
         android:layout_marginTop="0dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_ayam2"
         tools:ignore="ImageContrastCheck" />
 
@@ -47,6 +48,7 @@
                android:layout_gravity="center"
                android:src="@drawable/alternate_email"/>
            <EditText
+               android:id="@+id/edtEmailLogin"
                android:layout_width="310dp"
                android:layout_height="48dp"
                android:hint="email.id"
@@ -75,10 +77,19 @@
                     android:layout_gravity="center"
                     android:src="@drawable/locked_icon"/>
                 <EditText
-                    android:layout_width="310dp"
+                    android:id="@+id/edtPasswordLogin"
+                    android:layout_width="250dp"
                     android:layout_height="48dp"
                     android:hint="@string/kata_sandi"
                     android:background="@null"
+                    android:inputType="textPassword"
+                    />
+                <CheckBox
+                    android:id="@+id/cbPasswordLogin"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:button="@color/white"
+                    android:background="@drawable/close_eye"
                     />
             </LinearLayout>
             <View
@@ -93,7 +104,8 @@
             android:layout_width="165dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:text="Masuk"
+            android:text="@string/masuk_button"
+            style="@style/buttonText"
             android:textColor="@color/white"
             android:background="@drawable/button"/>
     <LinearLayout
@@ -115,11 +127,28 @@
             style="@style/login_choose"
             />
 
-        <ImageView
+        <LinearLayout
             android:layout_width="162dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/login_choose"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="20.8dp"
+                android:layout_height="20dp"
+                android:src="@drawable/google_logo"
+                />
+            <ImageView
+                android:layout_width="20.8dp"
+                android:layout_height="20dp"
+                android:src="@drawable/facebook_logo"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"/>
+            <ImageView
+                android:layout_width="20.8dp"
+                android:layout_height="20dp"
+                android:src="@drawable/call_logo"
+                />
+
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -10,11 +10,11 @@
 
     <ImageView
         android:id="@+id/ayam_goreng"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_width="377dp"
+        android:layout_height="377dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/img_ayam"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         tools:ignore="ImageContrastCheck" />
 
     <TextView
@@ -60,7 +60,7 @@
                     />
 
             </LinearLayout>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
@@ -68,10 +68,11 @@
             android:id="@+id/firstButton"
             android:layout_width="189dp"
             android:layout_height="48dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="150dp"
+            android:layout_marginTop="126dp"
             android:padding="10dp"
             android:text="@string/mulai_masuk"
+            style="@style/buttonText"
+            android:background="@drawable/button"
             android:textColor="@color/white" />
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

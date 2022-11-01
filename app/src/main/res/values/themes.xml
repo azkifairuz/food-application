@@ -50,4 +50,12 @@
             #bcbcbc
         </item>
     </style>
+    <style name="buttonText">
+        <item name="android:textAllCaps">
+            false
+        </item>
+        <item name="android:textSize">
+            16sp
+        </item>
+    </style>
 </resources>
