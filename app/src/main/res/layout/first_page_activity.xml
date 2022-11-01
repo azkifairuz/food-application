@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".ui.FirstPageActivity">
+
+    <ImageView
+        android:id="@+id/ayam_goreng"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/img_ayam"
+        android:scaleType="fitXY"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:layout_width="222dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="-6sp"
+        android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textAppearance="@style/welcome_the"
+        android:textColor="#616161" />
+            <TextView
+                android:text="@string/subtitle"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:layout_width="316dp"
+                android:layout_height="32dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <View
+                    android:id="@+id/ellipse_1"
+                    android:background="@drawable/ellipse_1"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="10dp"
+                    />
+                <View
+                    android:id="@+id/ellipse_2"
+                    android:background="@drawable/ellipse_2"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginRight="10dp"
+                    />
+                <View
+                    android:id="@+id/ellipse_3"
+                    android:background="@drawable/ellipse_3"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    />
+
+            </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/firstButton"
+            android:layout_width="189dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="150dp"
+            android:padding="10dp"
+            android:text="@string/mulai_masuk"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</LinearLayout>

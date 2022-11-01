@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">foodApplication</string>
+    <string name="welcome">Welcome There!</string>
+    <string name="subtitle">DapurKuliner is here for your culinary life.</string>
+    <string name="mulai_masuk">Mulai Masuk</string>
+    <string name="masuk">Masuk</string>
+    <string name="kata_sandi">Kata Sandi</string>
+    <string name="atau_login_dengan">atau login dengan</string>
+    <string name="belum_punya_akun">belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+</resources>
