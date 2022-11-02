@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         var name = intent.getStringExtra(EXTRA_NAME)
 
-        var text = "Selamay Datang $name"
+        var text = "Selamat Datang $name"
 
         tvNamaUser.text = text
     }
