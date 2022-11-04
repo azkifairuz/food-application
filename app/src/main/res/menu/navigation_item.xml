@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+    <item android:id="@+id/action_home"
+        android:title="@string/beranda"
+        android:icon="@drawable/home_icon"/>
+    <item android:id="@+id/action_pembayaran"
+        android:title="@string/pembayaran"
+        android:icon="@drawable/wallet_icon"/>
+    <item android:id="@+id/action_pengiriman"
+        android:title="@string/pengiriman"
+        android:icon="@drawable/truck_icon"/>
+    <item android:id="@+id/action_chat"
+        android:title="@string/chat"
+        android:icon="@drawable/chatbubble_ellipses"/>
+
 </menu>

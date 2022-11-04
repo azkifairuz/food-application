@@ -1,18 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MainActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:background="@drawable/radiusnavbar">
+        <LinearLayout
+            android:id="@+id/layout_title"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+        
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/person_fill_white"/>
+        <View
+            android:layout_marginStart="75.24dp"
+            android:layout_marginEnd="71.99dp"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:background="@drawable/name"/>
+            <View
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/notification_icon"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvNama"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_marginTop="55dp"
+            android:layout_below="@id/layout_title"
+            android:paddingHorizontal="15dp"
+
+            android:layout_width="320dp"
+            android:layout_height="34dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_searchbar">
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/search_icon"
+                android:layout_gravity="center_vertical"/>
+            <EditText
+
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:background="#ffffff"
+                android:fontFamily="@font/poppins_regular"
+                android:padding="8dp"
+                android:hint="@string/cari_sesuatu_yang_lezat"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation_item" />
+</RelativeLayout>

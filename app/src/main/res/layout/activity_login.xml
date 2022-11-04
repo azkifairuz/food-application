@@ -1,103 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.LoginActivity"
-    android:gravity="center_horizontal"
-    >
 
-    <ImageView
-        android:id="@+id/ayam_goreng"
-        android:layout_width="377dp"
-        android:layout_height="377dp"
-        android:layout_marginTop="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_ayam2"
-        tools:ignore="ImageContrastCheck" />
+    tools:context=".ui.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp">
-        <TextView
-            android:layout_width="90dp"
-            android:layout_height="36dp"
-            android:text="@string/masuk"
-            style="@style/masuk"
-            android:layout_marginBottom="10dp"/>
+        tools:context=".ui.LoginActivity"
+        android:gravity="center_horizontal"
+        >
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ayam_goreng"
+            android:layout_width="377dp"
+            android:layout_height="377dp"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_ayam2"
+            tools:ignore="ImageContrastCheck" />
 
-           <ImageView
-               android:layout_width="20dp"
-               android:layout_height="20dp"
-               android:layout_marginEnd="10dp"
-               android:layout_marginTop="2dp"
-               android:layout_gravity="center"
-               android:src="@drawable/alternate_email"/>
-           <EditText
-               android:id="@+id/edtEmailLogin"
-               android:layout_width="310dp"
-               android:layout_height="48dp"
-               android:hint="email.id"
-               android:background="@null"
-               />
-           </LinearLayout>
-           <View
-               android:layout_width="match_parent"
-               android:layout_height="1dp"
-               android:background="@drawable/lines"/>
-       </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp">
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="36dp"
+                android:text="@string/masuk"
+                style="@style/masuk"
+                android:layout_marginBottom="10dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/locked_icon"/>
-                <EditText
-                    android:id="@+id/edtPasswordLogin"
-                    android:layout_width="250dp"
-                    android:layout_height="48dp"
-                    android:hint="@string/kata_sandi"
-                    android:background="@null"
-                    android:inputType="textPassword"
-                    />
-                <CheckBox
-                    android:id="@+id/cbPasswordLogin"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:button="@color/white"
-                    android:background="@drawable/close_eye"
-                    />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/alternate_email"/>
+                    <EditText
+                        android:fontFamily="@font/poppins_regular"
+                        android:id="@+id/edtEmailLogin"
+                        android:layout_width="310dp"
+                        android:layout_height="48dp"
+                        android:hint="email.id"
+                        android:background="@null"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/lines"/>
             </LinearLayout>
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@drawable/lines"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/locked_icon"/>
+                    <EditText
+                        android:fontFamily="@font/poppins_regular"
+                        android:id="@+id/edtPasswordLogin"
+                        android:layout_width="250dp"
+                        android:layout_height="48dp"
+                        android:hint="@string/kata_sandi"
+                        android:background="@null"
+                        android:inputType="textPassword"
+                        />
+                    <CheckBox
+                        android:id="@+id/cbPasswordLogin"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:button="@color/white"
+                        android:background="@drawable/close_eye"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/lines"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
         <Button
             android:id="@+id/loginButton"
             android:layout_marginTop="85dp"
@@ -108,67 +116,69 @@
             style="@style/buttonText"
             android:textColor="@color/white"
             android:background="@drawable/button"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginLeft="33dp"
-        android:layout_marginRight="33dp"
-        android:layout_marginTop="24dp">
-
-        <TextView
-            android:layout_width="112dp"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/atau_login_dengan"
-            android:layout_gravity="center"
-            style="@style/login_choose"
-            />
-
         <LinearLayout
-            android:layout_width="162dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-            <ImageView
-                android:layout_width="20.8dp"
-                android:layout_height="20dp"
-                android:src="@drawable/google_logo"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="112dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/atau_login_dengan"
+                android:layout_gravity="center"
+                style="@style/login_choose"
                 />
-            <ImageView
-                android:layout_width="20.8dp"
-                android:layout_height="20dp"
-                android:src="@drawable/facebook_logo"
-                android:layout_marginEnd="48dp"
-                android:layout_marginStart="48dp"/>
-            <ImageView
-                android:layout_width="20.8dp"
-                android:layout_height="20dp"
-                android:src="@drawable/call_logo"
+
+            <LinearLayout
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <ImageView
+                    android:layout_width="20.8dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/google_logo"
+                    />
+                <ImageView
+                    android:layout_width="20.8dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/facebook_logo"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginStart="48dp"/>
+                <ImageView
+                    android:layout_width="20.8dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/call_logo"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/login_choose"
+                android:text="@string/belum_punya_akun"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/tvDaftar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daftar"
+                android:textColor="#293462"
                 />
 
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/login_choose"
-            android:text="@string/belum_punya_akun"
-            android:textAlignment="center"/>
-        <TextView
-            android:id="@+id/tvDaftar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/daftar"
-            android:textColor="#293462"
-            />
-
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

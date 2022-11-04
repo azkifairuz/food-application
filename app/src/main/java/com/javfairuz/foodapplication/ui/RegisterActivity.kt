@@ -1,14 +1,20 @@
 package com.javfairuz.foodapplication.ui
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.util.Patterns
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.databinding.ActivityRegisterBinding
 
@@ -18,12 +24,14 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private lateinit var showpassword : CheckBox
     private lateinit var edtPassword : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+
 
         showpassword = findViewById(R.id.cbPassword)
         edtPassword = findViewById(R.id.edtPasswordRegister)
@@ -45,6 +53,8 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.edtEmailRegister.text.toString()
             val password = binding.edtPasswordRegister.text.toString()
             val username = binding.edtUsernameRegister.text.toString()
+
+
             //validasi email
 
             if (email.isEmpty()){
@@ -71,14 +81,19 @@ class RegisterActivity : AppCompatActivity() {
                 binding.edtPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
-            RegisterFirebase(email,password)
+            RegisterFirebase(email,password,username)
         }
     }
 
-    private fun RegisterFirebase(email: String, password: String) {
+    private fun RegisterFirebase(email: String, password: String,username: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
                 if (it.isSuccessful){
+                    val user= auth.currentUser
+                    val profilChange = userProfileChangeRequest {
+                        displayName = username
+                    }
+                    user!!.updateProfile(profilChange)
                     Toast.makeText(this,"Daftar berhasil",Toast.LENGTH_SHORT).show()
                     val loginIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(loginIntent)

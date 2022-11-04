@@ -9,4 +9,11 @@
     <string name="belum_punya_akun">belum punya akun?</string>
     <string name="daftar">Daftar</string>
     <string name="masuk_button">Masuk</string>
+    <string name="beranda">Beranda</string>
+    <string name="pembayaran">Pembayaran</string>
+    <string name="pengiriman">Pengiriman</string>
+    <string name="chat">Chat</string>
+    <string name="cari_sesuatu_yang_lezat">cari sesuatu yang lezat...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
