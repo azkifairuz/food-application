@@ -21,9 +21,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-private lateinit var produkRecyclerview :RecyclerView
-lateinit var adapter: HomeAdapter
-private  var list: ArrayList<Produk> = arrayListOf()
+
 
 /**
  * A simple [Fragment] subclass.
@@ -34,7 +32,9 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var produkRecyclerview :RecyclerView
+    lateinit var adapter: HomeAdapter
+    private  var list: ArrayList<Produk> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -74,21 +74,37 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         produkRecyclerview = view.findViewById(R.id.rvTop)
-        produkRecyclerview.layoutManager = LinearLayoutManager(context)
+        produkRecyclerview.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         produkRecyclerview.setHasFixedSize(true)
         adapter = HomeAdapter()
         produkRecyclerview.adapter = adapter
 
+        var rvMenuPaket :RecyclerView
+        rvMenuPaket = view.findViewById(R.id.rvMenuPaket)
+        rvMenuPaket.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        rvMenuPaket.setHasFixedSize(true)
+        rvMenuPaket.adapter = adapter
+
+        var rvAndalanKost :RecyclerView
+        rvAndalanKost = view.findViewById(R.id.rvAndalanKost)
+        rvAndalanKost.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        rvAndalanKost.setHasFixedSize(true)
+        rvAndalanKost.adapter = adapter
+
+        var rvMenuLauk :RecyclerView
+        rvMenuLauk = view.findViewById(R.id.rvMenuLauk)
+        rvMenuLauk.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        rvMenuLauk.setHasFixedSize(true)
+        rvMenuLauk.adapter = adapter
 
 
-        produkRecyclerview.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        produkRecyclerview.setHasFixedSize(true)
+
+
+
 
 
         list.addAll(DataProduk.listProduk)
 
-
-        produkRecyclerview.adapter = adapter
+       adapter.addProdukList(list)
     }
 }

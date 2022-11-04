@@ -4,11 +4,136 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTop"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/card_product"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="223dp" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="146dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16dp"
+                        android:text="Top Rekomendasi"/>
+                    <View
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:background="@drawable/star_icon"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="233dp"
+                    tools:listitem="@layout/card_product"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16dp"
+                        android:text="Menu Paket"/>
+                    <View
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:background="@drawable/star_icon"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMenuPaket"
+                    android:layout_width="match_parent"
+                    android:layout_height="233dp"
+                    tools:listitem="@layout/card_product"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="233dp" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="146dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16dp"
+                        android:text="Top Rekomendasi"/>
+                    <View
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:background="@drawable/star_icon"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAndalanKost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/card_product"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="146dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16dp"
+                        android:text="Top Rekomendasi"/>
+                    <View
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:background="@drawable/star_icon"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMenuLauk"
+                    android:layout_width="match_parent"
+                    android:layout_height="233dp"
+                    tools:listitem="@layout/card_product"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

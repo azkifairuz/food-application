@@ -34,11 +34,11 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
     override fun getItemCount() = produkList.size
 
-//    fun addProdukList(produkList : List<Produk>){
-//        this.produkList.clear()
-//        this.produkList.addAll(produkList)
-//        notifyDataSetChanged()
-//    }
+    fun addProdukList(produkList : List<Produk>){
+        this.produkList.clear()
+        this.produkList.addAll(produkList)
+        notifyDataSetChanged()
+    }
 
     class MyViewHolder(itemView : View) :RecyclerView.ViewHolder(itemView){
 
