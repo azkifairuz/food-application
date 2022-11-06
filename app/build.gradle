@@ -54,6 +54,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
    //viewpager
+
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     //cardview
     implementation "androidx.cardview:cardview:1.0.0"

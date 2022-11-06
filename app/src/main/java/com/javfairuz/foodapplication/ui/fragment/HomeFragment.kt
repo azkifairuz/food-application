@@ -98,11 +98,6 @@ class HomeFragment : Fragment() {
         rvMenuLauk.adapter = adapter
 
 
-
-
-
-
-
         list.addAll(DataProduk.listProduk)
 
        adapter.addProdukList(list)
