@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,8 +19,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
-        
+
         <View
+            android:id="@+id/profil_nav"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/person_fill_white"/>
@@ -41,7 +41,6 @@
             android:layout_marginTop="55dp"
             android:layout_below="@id/layout_title"
             android:paddingHorizontal="15dp"
-
             android:layout_width="320dp"
             android:layout_height="34dp"
             android:layout_centerHorizontal="true"
@@ -71,6 +70,43 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        android:visibility="gone"
+        app:itemIconPadding="9dp"
+        android:background="@color/oren"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:itemIconSize="20dp"
+        app:itemTextAppearance="@style/itemText"
+        app:menu="@menu/profil_navigation"
+        android:fitsSystemWindows="true">
+        <Button
+            android:id="@+id/closeIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/cross_icon" />
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_marginBottom="40dp"
+            android:layout_width="133dp"
+            android:layout_height="48dp"
+            android:text="Keluar"
+            style="@style/buttonText"
+            android:textColor="@color/oren"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="bottom|center_horizontal"/>
+
+    </com.google.android.material.navigation.NavigationView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

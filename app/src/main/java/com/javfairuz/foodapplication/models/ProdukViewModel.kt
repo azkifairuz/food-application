@@ -9,10 +9,10 @@ class ProdukViewModel :ViewModel() {
 
     private val repository: ProdukRepository
     private val _allproduk = MutableLiveData<List<Produk>>()
-    val allProduk : LiveData<List<Produk>> = _allproduk
+    val allProduk : MutableLiveData<List<Produk>> = _allproduk
 
     init {
         repository = ProdukRepository().getInstance()
-        repository.loadProduk(_allproduk)
+        repository.loadProduk(allProduk)
     }
 }

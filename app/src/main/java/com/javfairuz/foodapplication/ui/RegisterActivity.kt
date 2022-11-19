@@ -18,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.databinding.ActivityRegisterBinding
 
+
 class RegisterActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityRegisterBinding
@@ -50,11 +51,16 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intentToLogin)
         }
         binding.registerButton.setOnClickListener{
-            val email = binding.edtEmailRegister.text.toString()
+            val email = binding.edtEmailRegister.text.toString().trim()
             val password = binding.edtPasswordRegister.text.toString()
             val username = binding.edtUsernameRegister.text.toString()
 
 
+            if (username.isEmpty()){
+                binding.edtUsernameRegister.error = "Email Harus diisi"
+                binding.edtUsernameRegister.requestFocus()
+                return@setOnClickListener
+            }
             //validasi email
 
             if (email.isEmpty()){
@@ -69,18 +75,20 @@ class RegisterActivity : AppCompatActivity() {
                 binding.edtEmailRegister.requestFocus()
                 return@setOnClickListener
             }
-            //valiasi password
+            //validasi password
             if (password.isEmpty()){
                 binding.edtPasswordRegister.error = "password tidak boleh kosong "
                 binding.edtPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
-            //validasoi panjang password
+            //validasi panjang password
             if(password.length < 8){
                 binding.edtPasswordRegister.error = " password minimal 8 angka "
                 binding.edtPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
+
+
             RegisterFirebase(email,password,username)
         }
     }
@@ -93,8 +101,10 @@ class RegisterActivity : AppCompatActivity() {
                     val profilChange = userProfileChangeRequest {
                         displayName = username
                     }
+
                     user!!.updateProfile(profilChange)
-                    Toast.makeText(this,"Daftar berhasil",Toast.LENGTH_SHORT).show()
+
+
                     val loginIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(loginIntent)
                 }else{

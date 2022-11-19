@@ -1,19 +1,18 @@
 package com.javfairuz.foodapplication.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.adapter.HomeAdapter
-import com.javfairuz.foodapplication.models.DataProduk
 import com.javfairuz.foodapplication.models.Produk
-import com.javfairuz.foodapplication.models.ProdukViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,36 +69,60 @@ class HomeFragment : Fragment() {
                 }
             }
     }
-
+        lateinit var ref:DatabaseReference
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         produkRecyclerview = view.findViewById(R.id.rvTop)
         produkRecyclerview.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         produkRecyclerview.setHasFixedSize(true)
+        ref = FirebaseDatabase.getInstance("https://food-application-af312-default-rtdb.asia-southeast1.firebasedatabase.app").reference
+
         adapter = HomeAdapter()
         produkRecyclerview.adapter = adapter
 
-        var rvMenuPaket :RecyclerView
-        rvMenuPaket = view.findViewById(R.id.rvMenuPaket)
+        val rvMenuPaket :RecyclerView = view.findViewById(R.id.rvMenuPaket)
         rvMenuPaket.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvMenuPaket.setHasFixedSize(true)
         rvMenuPaket.adapter = adapter
 
-        var rvAndalanKost :RecyclerView
-        rvAndalanKost = view.findViewById(R.id.rvAndalanKost)
+        val rvAndalanKost :RecyclerView = view.findViewById(R.id.rvAndalanKost)
         rvAndalanKost.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvAndalanKost.setHasFixedSize(true)
         rvAndalanKost.adapter = adapter
 
-        var rvMenuLauk :RecyclerView
-        rvMenuLauk = view.findViewById(R.id.rvMenuLauk)
+        val rvMenuLauk :RecyclerView = view.findViewById(R.id.rvMenuLauk)
         rvMenuLauk.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvMenuLauk.setHasFixedSize(true)
         rvMenuLauk.adapter = adapter
 
 
-        list.addAll(DataProduk.listProduk)
+        //list.addAll(DataProduk.listProduk)
+        getData()
+//       adapter.addProdukList(list)
+    }
 
-       adapter.addProdukList(list)
+    fun getData(){
+        Log.e("T","berhasil1")
+        val da =ref.child("products").orderByChild("category")
+            .equalTo("regular").get()
+
+        da.addOnSuccessListener {
+            if(!it.exists()){
+                Log.e("T","gada")
+            }
+           val data =  it.children.map{ dataSnapshot ->
+               Log.e("T",dataSnapshot.toString())
+
+               dataSnapshot.getValue(Produk::class.java)!!
+//                Produk(
+//                    produk = dataSnapshot.child("produk").getValue(String::class.java).orEmpty(),
+//                    harga =  dataSnapshot.child("harga").getValue(Integer::class.java)?.toInt() ?: 0,
+//                    image = dataSnapshot.child("image").getValue(String::class.java).orEmpty()
+//                )
+            }
+            adapter.addProdukList(data)
+        }.addOnFailureListener {
+            Log.e("T","berhasil3 ${it.message}")
+        }
     }
 }

@@ -4,24 +4,40 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.util.Patterns
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.javfairuz.foodapplication.R
+import com.javfairuz.foodapplication.SharedPreference
+import com.javfairuz.foodapplication.SharedPreference.Companion.PREF_IS_LOGIN
+import com.javfairuz.foodapplication.SharedPreference.Companion.PREF_PASSWORD
+import com.javfairuz.foodapplication.SharedPreference.Companion.PREF_USERNAME
 import com.javfairuz.foodapplication.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityLoginBinding
     lateinit var auth: FirebaseAuth
+    lateinit var  sharedPref : SharedPreference
     private lateinit var showpassword : CheckBox
     private lateinit var edtPassword : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        sharedPref = SharedPreference(this@LoginActivity)
 
         auth = FirebaseAuth.getInstance()
         binding.tvDaftar.setOnClickListener{
@@ -41,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         binding.loginButton.setOnClickListener{
-            val email = binding.edtEmailLogin.text.toString()
+            val email = binding.edtEmailLogin.text.toString().trim()
             val password = binding.edtPasswordLogin.text.toString()
             //validasi email
 
@@ -64,17 +80,32 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            RegisterFirebase(email,password)
+            LoginFirebase(email,password)
+        }
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        if(sharedPref.getSessionBool(PREF_IS_LOGIN)){
+            val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intentToMain)
         }
     }
 
-    private fun RegisterFirebase(email: String, password: String) {
+    private fun LoginFirebase(email: String, password: String) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){
                     if (it.isSuccessful){
+
+                        sharedPref.setSessionString(PREF_USERNAME, binding.edtEmailLogin.text.toString())
+                        sharedPref.setSessionString(PREF_PASSWORD, binding.edtPasswordLogin.text.toString())
+                        sharedPref.setSessionBool(PREF_IS_LOGIN, true)
                         Toast.makeText(this,"selamat datang $email", Toast.LENGTH_SHORT).show()
                         val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intentToMain)
+
                     }else{
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
                     }

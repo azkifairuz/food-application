@@ -46,6 +46,23 @@
         </item>
 
     </style>
+    <style name="itemText">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="fontFamily">
+            @font/poppins_regular
+        </item>
+        <item name="lineHeight">
+            21sp
+        </item>
+
+        <item name="android:textColor">
+            #ffffff
+        </item>
+
+    </style>
     <style name="login_choose">
         <item name="android:textSize">
             12sp

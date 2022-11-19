@@ -1,27 +1,57 @@
 package com.javfairuz.foodapplication.ui
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.javfairuz.foodapplication.R
-import com.javfairuz.foodapplication.adapter.HomeAdapter
+import com.javfairuz.foodapplication.SharedPreference
 import com.javfairuz.foodapplication.databinding.ActivityMainBinding
-import com.javfairuz.foodapplication.models.DataProduk
-import com.javfairuz.foodapplication.models.Produk
 import com.javfairuz.foodapplication.ui.fragment.*
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPref : SharedPreference
+    private lateinit var layout : View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPref = SharedPreference(this@MainActivity)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomeFragment())
+
+//        layout = layoutInflater.inflate(R.layout.nav_header,null)
+//        val closeNav = layout.findViewById<Button>(R.id.closeIcon)
+        binding.closeIcon.setOnClickListener {
+            binding.navView.visibility = View.GONE
+            Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.profilNav.setOnClickListener {
+            binding.navView.visibility = View.VISIBLE
+        }
+
+
+        binding.btnLogout.setOnClickListener {
+              sharedPref.clearSession()
+            Toast.makeText(this, "berhasil Logout", Toast.LENGTH_SHORT).show()
+            val logoutIntent = Intent(this@MainActivity,FirstPageActivity::class.java)
+            startActivity(logoutIntent)
+        }
+
         binding.bottomNav.setOnItemSelectedListener {
 
             when(it.itemId){

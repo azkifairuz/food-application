@@ -25,11 +25,12 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
         val currentProduk = produkList[position]
 
         Glide.with(holder.itemView.context)
+
             .load(currentProduk.image)
             .apply(RequestOptions().override(107,107))
             .into(holder.imgProduk)
         holder.produkName.text = currentProduk.produk
-        holder.hargaProduk.text = currentProduk.harga
+        holder.hargaProduk.text = currentProduk.harga.toString()
     }
 
     override fun getItemCount() = produkList.size

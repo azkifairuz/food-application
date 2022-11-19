@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+
+    >
+    <item
+        android:icon="@drawable/person_fill_white"
+        android:id="@+id/Akun"
+        android:title="Akun"
+
+        />
+        <item
+            
+        android:id="@+id/notification_menu"
+            android:icon="@drawable/notification_stroke"
+        android:title="Notiffication" />
+        <item
+        android:id="@+id/item3"
+            android:icon="@drawable/receipt_icon"
+        android:title="Riwayat Pesanan"/>
+
+    <item
+        android:id="@+id/paymentMethod"
+        android:icon="@drawable/wallet_icon"
+        android:title="Metode Pembayaran"/>
+
+    <item
+        android:id="@+id/language"
+        android:icon="@drawable/language"
+        android:title="Bahasa"/>
+    <item
+        android:id="@+id/data_menu"
+        android:icon="@drawable/data_icon"
+        android:title="Data"/>
+</menu>
