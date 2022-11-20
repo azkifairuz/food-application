@@ -9,11 +9,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.SharedPreference
 import com.javfairuz.foodapplication.databinding.ActivityMainBinding
@@ -24,21 +27,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref : SharedPreference
     private lateinit var layout : View
-
+    private lateinit var auth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPref = SharedPreference(this@MainActivity)
-
+        auth = FirebaseAuth.getInstance()
+        var user = auth.currentUser
+        layout = layoutInflater.inflate(R.layout.nav_header,null)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomeFragment())
 
-//        layout = layoutInflater.inflate(R.layout.nav_header,null)
+        var displayName = binding.tvUsernameProfil
+        displayName.text = user!!.displayName ?:"gada username"
+        var displayEmail = binding.tvEmailProfil
+        displayEmail.text = user!!.email ?:"tidak ada email"
 //        val closeNav = layout.findViewById<Button>(R.id.closeIcon)
         binding.closeIcon.setOnClickListener {
             binding.navView.visibility = View.GONE
             Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
         }
+
 
         binding.profilNav.setOnClickListener {
             binding.navView.visibility = View.VISIBLE
@@ -55,10 +64,18 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setOnItemSelectedListener {
 
             when(it.itemId){
-                R.id.action_home -> replaceFragment(HomeFragment())
+                R.id.action_home ->{ replaceFragment(HomeFragment())
+                    binding.header.visibility = View.VISIBLE
+                }
                 R.id.action_chat -> replaceFragment(chatFragment())
-                R.id.action_pembayaran -> replaceFragment(PembayaranFragment())
-                R.id.action_pengiriman -> replaceFragment(PengirimanFragment())
+                R.id.action_pembayaran -> { replaceFragment(PembayaranFragment())
+                    binding.header.visibility = View.GONE
+                }
+
+                R.id.action_pengiriman -> { replaceFragment(PengirimanFragment())
+                binding.header.visibility = View.GONE
+                }
+
                 else->{
 
 

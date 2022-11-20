@@ -25,7 +25,6 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
         val currentProduk = produkList[position]
 
         Glide.with(holder.itemView.context)
-
             .load(currentProduk.image)
             .apply(RequestOptions().override(107,107))
             .into(holder.imgProduk)

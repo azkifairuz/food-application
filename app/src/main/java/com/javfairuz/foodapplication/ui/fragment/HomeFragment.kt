@@ -114,11 +114,7 @@ class HomeFragment : Fragment() {
                Log.e("T",dataSnapshot.toString())
 
                dataSnapshot.getValue(Produk::class.java)!!
-//                Produk(
-//                    produk = dataSnapshot.child("produk").getValue(String::class.java).orEmpty(),
-//                    harga =  dataSnapshot.child("harga").getValue(Integer::class.java)?.toInt() ?: 0,
-//                    image = dataSnapshot.child("image").getValue(String::class.java).orEmpty()
-//                )
+
             }
             adapter.addProdukList(data)
         }.addOnFailureListener {

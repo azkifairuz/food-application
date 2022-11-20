@@ -8,21 +8,23 @@
     android:orientation="horizontal"
     android:layout_marginEnd="20dp"
     android:layout_marginTop="20dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="20dp"
+    app:cardBackgroundColor="#fdfdfd"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/shape_searchbar">
+        >
             <ImageView
                 android:id="@+id/imgProduk"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 android:layout_width="107dp"
                 android:layout_height="107dp"
-                android:background="@drawable/shape_searchbar"
+                android:foreground="@drawable/corner_image"
                 tools:src="@tools:sample/avatars"/>
 
 
@@ -33,6 +35,7 @@
             android:textSize="12sp"
             android:textColor="#333333"
             android:text="nama product"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/poppins_regular"/>
         <TextView
@@ -41,6 +44,7 @@
             android:layout_height="16dp"
             android:fontFamily="@font/poppins_regular"
             android:text="harga"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="1dp"
             android:textSize="10sp"/>
     </LinearLayout>

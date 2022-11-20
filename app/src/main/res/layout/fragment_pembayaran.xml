@@ -4,11 +4,445 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.PembayaranFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+    android:id="@+id/headerTransaksi"
+
+    android:layout_width="match_parent"
+    android:layout_height="185dp"
+    android:background="@drawable/radiusnavbar">
+
+    <LinearLayout
+
+        android:id="@+id/layout_title"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <View
+            android:id="@+id/back_button"
+            android:layout_width="6.75dp"
+            android:layout_height="13dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/backl_icon"/>
+        <View
+            android:layout_marginStart="75.24dp"
+            android:layout_marginEnd="71.99dp"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:background="@drawable/name"/>
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/notification_icon"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="55dp"
+        android:layout_below="@id/layout_title"
+        android:paddingHorizontal="15dp"
+        android:layout_width="320dp"
+        android:layout_height="34dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_searchbar">
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/search_icon"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:background="#ffffff"
+            android:fontFamily="@font/poppins_regular"
+            android:padding="8dp"
+            android:hint="Cari Transaksi"/>
+    </LinearLayout>
+
+</RelativeLayout>
     <TextView
+        android:layout_below="@id/headerTransaksi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaksi Terkini"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:lineHeight="24dp"
+        android:textFontWeight="500"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Pembayaran" />
+        android:orientation="vertical"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brlum Ada Transaksi"
+                android:layout_gravity="center"
+                />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="25dp"-->
+
+<!--            android:orientation="vertical"-->
+<!--            >-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Paket Regular "-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:lineHeight="21dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textColor="#333333" />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="28 Sep 2022, 12:00" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="112dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Menunggu"-->
+<!--                        android:layout_marginEnd="23.47dp"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_width="15dp"-->
+<!--                        android:layout_height="15dp"-->
+<!--                        android:background="@drawable/chevron_forward"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/lines"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="10dp"-->
+
+<!--            android:orientation="vertical"-->
+<!--            >-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Paket Large "-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:lineHeight="21dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textColor="#333333" />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="10 Sep 2022, 15:00" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="112dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Rp 420.000"-->
+<!--                        android:textColor="#333333"-->
+<!--                        android:layout_marginEnd="23.47dp"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_width="15dp"-->
+<!--                        android:layout_height="15dp"-->
+<!--                        android:background="@drawable/chevron_forward"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/lines"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="10dp"-->
+
+<!--            android:orientation="vertical"-->
+<!--            >-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Ayam Malbi "-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:lineHeight="21dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textColor="#333333" />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="20 Aug 2022, 07:00" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="112dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Rp 800.000"-->
+<!--                        android:textColor="#333333"-->
+<!--                        android:layout_marginEnd="23.47dp"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_width="15dp"-->
+<!--                        android:layout_height="15dp"-->
+<!--                        android:background="@drawable/chevron_forward"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/lines"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="10dp"-->
+
+<!--            android:orientation="vertical"-->
+<!--            >-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Paket Regular "-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:lineHeight="21dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textColor="#333333" />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="28 sep 2022, 12:00" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="112dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Rp 420.000"-->
+<!--                        android:textColor="#333333"-->
+<!--                        android:layout_marginEnd="23.47dp"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_width="15dp"-->
+<!--                        android:layout_height="15dp"-->
+<!--                        android:background="@drawable/chevron_forward"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/lines"/>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="10dp"-->
+
+<!--            android:orientation="vertical"-->
+<!--            >-->
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Paket Regular "-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:lineHeight="21dp"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        android:textColor="#333333" />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="10sp"-->
+<!--                        android:text="28 sep 2022, 12:00" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="112dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="25dp"-->
+<!--                    >-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Rp 420.000"-->
+<!--                        android:textColor="#333333"-->
+<!--                        android:layout_marginEnd="23.47dp"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:fontFamily="@font/poppins_regular"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_gravity="end|center"-->
+<!--                        android:layout_width="15dp"-->
+<!--                        android:layout_height="15dp"-->
+<!--                        android:background="@drawable/chevron_forward"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/lines"/>-->
+
+<!--        </LinearLayout>-->
+
+
+
+    </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>

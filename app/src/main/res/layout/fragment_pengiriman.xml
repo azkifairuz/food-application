@@ -6,12 +6,68 @@
     tools:context=".ui.fragment.PengirimanFragment"
     >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="pengiriman"
-        android:gravity="center_horizontal"
-        />
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengiriman"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="#333333"
+            android:textSize="20dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            >
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="254dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button"
+                android:layout_marginTop="100dp"/>
+            <LinearLayout
+                android:layout_width="290dp"
+                android:layout_height="261dp"
+                android:backgroundTint="#333333"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button"
+               android:layout_marginTop="115dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Belum ada pesanan"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    style="@style/buttonText"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/button"
+                    android:text="pesan sesuatu"/>
+            </RelativeLayout>
+        </FrameLayout>
+    </LinearLayout>
 
 </FrameLayout>

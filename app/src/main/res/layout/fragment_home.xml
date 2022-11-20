@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "#F9F9F9"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F9F9F9"
     tools:context=".ui.fragment.HomeFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#F9F9F9"
+            android:background="#ffffff"
             >
             <LinearLayout
                 android:layout_marginStart="20dp"
@@ -33,6 +35,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="2dp"
                         android:textColor=" #333333"
+                        android:textFontWeight="500"
                         android:textSize="16dp"
                         android:text="Top Rekomendasi"/>
                     <View
@@ -64,7 +67,9 @@
                         android:fontFamily="@font/poppins_regular"
                         android:layout_gravity="center"
                         android:layout_marginTop="2dp"
+                        android:textColor="#333333"
                         android:textSize="16dp"
+                        android:textFontWeight="500"
                         android:text="Menu Paket"/>
                     <View
                         android:layout_width="17dp"
@@ -135,7 +140,18 @@
                     android:layout_height="233dp"
                     tools:listitem="@layout/card_product"/>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        app:rippleColor="@color/oren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        app:tint="@color/white"
+        android:src="@drawable/icon_keranjang"
+        android:layout_marginBottom="89dp"
+        />
 </FrameLayout>

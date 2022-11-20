@@ -4,53 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="155dp"
-    tools:context=".ui.MainActivity"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/upper"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profil_user"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            app:civ_border_color="@color/oren"
-            app:civ_border_width="0.5dp"
-            tools:src="@tools:sample/avatars" />
-
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/upper"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-10dp"
-        android:orientation="vertical">
-    <TextView
-        android:id="@+id/tvUsernameProfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Alifah Anindya Maharani "
-        style="@style/masuk"/>
-        <TextView
-            android:id="@+id/tvEmailProfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="anindya212@gmail.com "
-            android:textColor="#333333"
-            android:layout_below="@id/tvUsernameProfil"/>
-    </RelativeLayout>
 </RelativeLayout>
