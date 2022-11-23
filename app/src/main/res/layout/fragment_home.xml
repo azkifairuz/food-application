@@ -98,6 +98,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:layout_gravity="center"
                         android:layout_marginTop="2dp"
+                        android:textColor="#333333"
                         android:textSize="16dp"
                         android:text="Andalan Kost"/>
                     <View
@@ -124,7 +125,7 @@
                         android:layout_width="146dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-
+                        android:textColor="#333333"
                         android:layout_gravity="center"
                         android:layout_marginTop="2dp"
                         android:textSize="16dp"
@@ -145,6 +146,7 @@
     </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:elevation="0dp"
         app:rippleColor="@color/oren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

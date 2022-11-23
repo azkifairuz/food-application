@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.databinding.FragmentPengirimanBinding
 import com.javfairuz.foodapplication.ui.MainActivity
@@ -39,6 +40,8 @@ class PengirimanFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pengiriman, container, false)
+
+
     }
 
 
@@ -60,6 +63,16 @@ class PengirimanFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val btnPesan : Button = view.findViewById(R.id.btnPesan)
+        btnPesan.setOnClickListener {
+            startActivity(Intent(context,MainActivity::class.java))
+        }
     }
 
 

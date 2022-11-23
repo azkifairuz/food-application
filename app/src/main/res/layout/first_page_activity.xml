@@ -85,6 +85,8 @@
             android:layout_height="50dp"
             android:layout_marginTop="126dp"
             android:text="@string/mulai_masuk"
+            android:layout_marginBottom="5dp"
+            android:elevation="0dp"
             style="@style/buttonText"
             android:background="@drawable/button"
             android:textColor="@color/white" />

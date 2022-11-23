@@ -58,10 +58,13 @@
                 android:layout_gravity="center_horizontal"
                 >
                 <Button
+                    android:id="@+id/btnPesan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
+                    android:layout_marginBottom="10dp"
                     style="@style/buttonText"
+                    android:elevation="0dp"
                     android:textColor="@color/white"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/button"

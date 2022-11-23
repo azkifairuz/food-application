@@ -13,6 +13,20 @@
         android:theme="@style/Theme.FoodApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ui.DetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.cartActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="false">
             <meta-data
@@ -22,21 +36,19 @@
         <activity
             android:name=".ui.FirstPageActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
-                android:value=""/>
+                android:value="" />
         </activity>
         <activity
             android:name=".ui.RegisterActivity"
             android:exported="false">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -44,8 +56,6 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="false">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

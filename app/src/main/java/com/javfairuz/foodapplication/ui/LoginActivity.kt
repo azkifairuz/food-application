@@ -88,9 +88,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if(sharedPref.getSessionBool(PREF_IS_LOGIN)){
+        if(auth.currentUser != null){
             val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intentToMain)
+            finish()
         }
     }
 
@@ -105,6 +106,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this,"selamat datang $email", Toast.LENGTH_SHORT).show()
                         val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intentToMain)
+                        finish()
 
                     }else{
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()

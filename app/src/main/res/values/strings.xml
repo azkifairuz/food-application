@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">foodApplication</string>
+    <string name="app_name">Dapur Kuliner</string>
     <string name="welcome">Welcome There!</string>
     <string name="subtitle">DapurKuliner is here for your culinary life.</string>
     <string name="mulai_masuk">Mulai Masuk</string>

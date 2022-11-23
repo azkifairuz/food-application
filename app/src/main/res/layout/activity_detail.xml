@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/header"
+
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:background="@drawable/radiusnavbar">
+
+                <LinearLayout
+                    android:id="@+id/layout_title"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <View
+                        android:id="@+id/profil_nav"
+                        android:layout_width="15dp"
+                        android:layout_height="20dp"
+                        android:backgroundTint="@color/white"
+                        android:background="@drawable/backl_icon"/>
+                    <View
+                        android:layout_marginStart="75.24dp"
+                        android:layout_marginEnd="71.99dp"
+                        android:layout_width="130dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/name"/>
+                    <View
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/notification_icon"/>
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:backgroundTint="#ffffff"
+            android:layout_marginTop="109dp"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/produkView"
+                android:layout_width="match_parent"
+                android:layout_height="406dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:background="@drawable/detail_rounded"
+                android:backgroundTint="#ffffff">
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="50dp"
+                    android:layout_height="1dp"
+                    android:background="@drawable/lines"/>
+                <ImageView
+                    android:id="@+id/imgProdukDetail"
+                    android:scaleType="centerCrop"
+                    android:layout_width="320dp"
+                    android:layout_height="274dp"
+                    android:foreground="@drawable/corner_image"
+                    tools:src="@tools:sample/avatars"/>
+                    <RelativeLayout
+                        android:layout_marginTop="25dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvProdukName"
+                                android:layout_width="139dp"
+                                android:layout_height="30dp"
+                                android:text="Nama Produk"
+                                android:fontFamily="@font/poppins_regular"
+                                android:capitalize="sentences"
+                                android:textColor="#333333"
+                                android:textSize="20sp" />
+                            <TextView
+                                android:id="@+id/tvToping"
+                                android:layout_marginStart="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textColor="#333333"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/tvHargaProduk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="harga"
+                            android:textSize="12sp"
+                            android:textColor="#333333"
+                            android:fontFamily="@font/poppins_regular"
+                            android:layout_centerInParent="true"
+                            android:textAlignment="center"
+
+                            android:layout_alignParentEnd="true"/>
+                    </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/produkView"
+                android:id="@+id/listLauk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih lauk"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"/>
+                <LinearLayout
+                    android:id="@+id/rbAyam"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:id="@+id/tvNamaLauk1"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ayam Goreng"
+                        android:textColor="#333333"
+                        android:textSize="12sp"/>
+                    <RadioButton
+                        android:id="@+id/rb1"
+                        android:layout_weight="1"
+                        android:clickable="false"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/oren"
+                        android:backgroundTint="@color/oren"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/rbTempe"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:id="@+id/tvNamaLauk3"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tempe Goreng"
+                        android:textColor="#333333"
+                        android:textSize="12sp"/>
+                    <RadioButton
+                        android:clickable="false"
+                        android:id="@+id/rb3"
+                        android:layout_weight="1"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/oren"
+                        android:backgroundTint="@color/oren"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/rBebek"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:id="@+id/tvNamaLauk4"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bebek Goreng"
+                        android:textColor="#333333"
+                        android:textSize="12sp"/>
+                    <RadioButton
+                        android:clickable="false"
+                        android:id="@+id/rb4"
+                        android:layout_weight="1"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/oren"
+                        android:backgroundTint="@color/oren"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/rbKankung"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <TextView
+                        android:id="@+id/tvNamaLauk2"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tumis Kangkung"
+                        android:textColor="#333333"
+                        android:textSize="12sp"/>
+                    <RadioButton
+                        android:clickable="false"
+                        android:id="@+id/rb2"
+                        android:layout_weight="1"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/oren"
+                        android:backgroundTint="@color/oren"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <Button
+
+                android:id="@+id/btnCart"
+                android:layout_below="@id/listLauk"
+                android:layout_width="200dp"
+                android:layout_height="44dp"
+                android:elevation="0dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button"
+                style="@style/buttonText"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_centerHorizontal="true"
+                android:text="Masuk Keranjang"/>
+        </RelativeLayout>
+    </FrameLayout>
+
+</ScrollView>

@@ -1,18 +1,28 @@
 package com.javfairuz.foodapplication.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.javfairuz.foodapplication.R
+import com.javfairuz.foodapplication.`interface`.Comunicator
 import com.javfairuz.foodapplication.adapter.HomeAdapter
+import com.javfairuz.foodapplication.adapter.KostAdapter
+import com.javfairuz.foodapplication.adapter.LaukAdapter
+import com.javfairuz.foodapplication.adapter.PaketAdapter
 import com.javfairuz.foodapplication.models.Produk
+import com.javfairuz.foodapplication.ui.DetailActivity
+import com.javfairuz.foodapplication.ui.MainActivity
+import com.javfairuz.foodapplication.ui.cartActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,9 +41,8 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var produkRecyclerview :RecyclerView
-    lateinit var adapter: HomeAdapter
-    private  var list: ArrayList<Produk> = arrayListOf()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -69,40 +78,73 @@ class HomeFragment : Fragment() {
                 }
             }
     }
-        lateinit var ref:DatabaseReference
+    private lateinit var produkRecyclerview :RecyclerView
+    lateinit var adapterRegular: HomeAdapter
+    lateinit var adapterKost: KostAdapter
+    lateinit var adapterMenuPaket: PaketAdapter
+    lateinit var adapterLauk: LaukAdapter
+    lateinit var ref:DatabaseReference
+    private lateinit var comunicator: Comunicator
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //mengkoneksikan dengan database
+        ref = FirebaseDatabase.getInstance("https://food-application-af312-default-rtdb.asia-southeast1.firebasedatabase.app").reference
+
+
+
+        //mengdefinisikan adapter
+        adapterRegular = HomeAdapter(context)
+        adapterKost = KostAdapter(context)
+        adapterMenuPaket = PaketAdapter(context)
+        adapterLauk = LaukAdapter(context)
+
+        getDataRegular()
+        comunicator = activity as Comunicator
+
+        var fab :FloatingActionButton = view.findViewById(R.id.fab)
+        fab.setOnClickListener{
+            Log.e("tod", "fab")
+
+                comunicator.goToCart()
+        }
+        //menampilkan data produk dri firebase ke recycler view
         produkRecyclerview = view.findViewById(R.id.rvTop)
         produkRecyclerview.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         produkRecyclerview.setHasFixedSize(true)
-        ref = FirebaseDatabase.getInstance("https://food-application-af312-default-rtdb.asia-southeast1.firebasedatabase.app").reference
+        produkRecyclerview.adapter = adapterRegular
 
-        adapter = HomeAdapter()
-        produkRecyclerview.adapter = adapter
+        adapterRegular.setOnItemClickCallback(object : HomeAdapter.OnItemClickCallback{
+            override fun onItemClicked(position: Int) {
+                comunicator.goToDetail()
+
+                Toast.makeText(context, "$position", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         val rvMenuPaket :RecyclerView = view.findViewById(R.id.rvMenuPaket)
         rvMenuPaket.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvMenuPaket.setHasFixedSize(true)
-        rvMenuPaket.adapter = adapter
+        rvMenuPaket.adapter = adapterMenuPaket
 
         val rvAndalanKost :RecyclerView = view.findViewById(R.id.rvAndalanKost)
         rvAndalanKost.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvAndalanKost.setHasFixedSize(true)
-        rvAndalanKost.adapter = adapter
+        rvAndalanKost.adapter = adapterKost
 
         val rvMenuLauk :RecyclerView = view.findViewById(R.id.rvMenuLauk)
         rvMenuLauk.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
         rvMenuLauk.setHasFixedSize(true)
-        rvMenuLauk.adapter = adapter
+        rvMenuLauk.adapter = adapterLauk
 
 
-        //list.addAll(DataProduk.listProduk)
-        getData()
-//       adapter.addProdukList(list)
+
+
     }
-
-    fun getData(){
+    fun getDataRegular(){
         Log.e("T","berhasil1")
+        //mengambil data kategori regular
         val da =ref.child("products").orderByChild("category")
             .equalTo("regular").get()
 
@@ -116,9 +158,67 @@ class HomeFragment : Fragment() {
                dataSnapshot.getValue(Produk::class.java)!!
 
             }
-            adapter.addProdukList(data)
+            adapterRegular.addProdukList(data)
         }.addOnFailureListener {
             Log.e("T","berhasil3 ${it.message}")
         }
+        //mengambil data categpry kost
+        val dataKost =ref.child("products").orderByChild("category")
+            .equalTo("kost").get()
+
+        dataKost.addOnSuccessListener {
+            if(!it.exists()){
+                Log.e("T","gada")
+            }
+            val data =  it.children.map{ dataSnapshot ->
+                Log.e("T",dataSnapshot.toString())
+
+                dataSnapshot.getValue(Produk::class.java)!!
+
+            }
+            adapterKost.addProdukList(data)
+        }.addOnFailureListener {
+            Log.e("T","berhasil3 ${it.message}")
+        }
+
+        //mengambil data caregory menu paket
+        val dataMenuPaket =ref.child("products").orderByChild("category")
+            .equalTo("menupaket").get()
+
+        dataMenuPaket.addOnSuccessListener {
+            if(!it.exists()){
+                Log.e("T","gada")
+            }
+            val data =  it.children.map{ dataSnapshot ->
+                Log.e("T",dataSnapshot.toString())
+
+                dataSnapshot.getValue(Produk::class.java)!!
+
+            }
+            adapterMenuPaket.addProdukList(data)
+        }.addOnFailureListener {
+            Log.e("T","berhasil3 ${it.message}")
+        }
+
+        //mengambil data category menulauk
+        val dataLauk =ref.child("products").orderByChild("category")
+            .equalTo("lauk").get()
+
+        dataLauk.addOnSuccessListener {
+            if(!it.exists()){
+                Log.e("T","gada")
+            }
+            val data =  it.children.map{ dataSnapshot ->
+                Log.e("T",dataSnapshot.toString())
+
+                dataSnapshot.getValue(Produk::class.java)!!
+
+            }
+            adapterLauk.addProdukList(data)
+        }.addOnFailureListener {
+            Log.e("T","berhasil3 ${it.message}")
+        }
+
     }
+
 }
