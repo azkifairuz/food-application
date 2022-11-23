@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f7f7f7">
+    
+    <LinearLayout
+        android:backgroundTint="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:orientation="horizontal"
+
+        android:weightSum="3"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/imageCart"
+            android:scaleType="centerCrop"
+            android:foreground="@drawable/corner_image"
+            android:layout_width="92dp"
+            android:layout_height="82dp"
+            tools:src="@tools:sample/avatars"/>
+        <RelativeLayout
+            android:id="@+id/satu"
+            android:layout_weight="2"
+            android:layout_width="220dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/tvTitle"
+                android:text="produk"
+                android:capitalize="sentences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="#333333"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <RelativeLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/minus"
+                    android:layout_width="20dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="2dp"
+                    android:background="@drawable/btn_min" />
+
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_height="18dp"
+                    android:layout_alignEnd="@id/minus"
+                    android:layout_marginEnd="-22dp"
+                    android:background="@drawable/orange_box">
+                    <TextView
+                        android:id="@+id/qty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="1"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"/>
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/plus"
+                    android:layout_width="20dp"
+                    android:layout_height="18dp"
+                    android:layout_alignLeft="@id/minus"
+                    android:layout_marginLeft="43dp"
+                    android:background="@drawable/frame_6" />
+            </RelativeLayout>
+                <TextView
+                    android:id="@+id/hargaCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 200.000"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

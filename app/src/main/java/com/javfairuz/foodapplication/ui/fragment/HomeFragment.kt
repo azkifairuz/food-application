@@ -105,7 +105,7 @@ class HomeFragment : Fragment() {
 
         var fab :FloatingActionButton = view.findViewById(R.id.fab)
         fab.setOnClickListener{
-            Log.e("tod", "fab")
+
 
                 comunicator.goToCart()
         }

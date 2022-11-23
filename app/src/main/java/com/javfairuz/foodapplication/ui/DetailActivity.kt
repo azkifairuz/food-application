@@ -107,7 +107,7 @@ class DetailActivity : AppCompatActivity() {
     fun pushData(produk: String,image : String, Harga :Int) {
         val uid = auth.currentUser?.uid.toString()
         val CartData =  CartStorage(produk,image,Harga)
-        val idRandom = ref.child("cart").child(uid).key
+
         if (produk == "") {
             Toast.makeText(this, "Cannot be Null!", Toast.LENGTH_LONG).show()
         } else {

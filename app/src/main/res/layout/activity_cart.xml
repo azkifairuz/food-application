@@ -5,14 +5,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.cartActivity"
-    android:gravity="center">
-        <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
+    android:gravity="center"
+    android:background="#f7f7f7"
+    android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:text="Keranjang Masih Kosong"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="30dp">
+                <View
+                    android:id="@+id/back_button"
+                    android:layout_width="15dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/backl_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Pesanan"
+                    android:textColor="#333333"
+                    android:textSize="20sp" />
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="500dp"
+                            tools:listitem="@layout/card_cart"/>
+                </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp">
+                <RelativeLayout
+                    android:id="@+id/kode_diskon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="#000000"
+                            android:text="Kode Diskon"
+                            />
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="1dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/lines"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Jumlah Total"
+                            />
+                        <TextView
+                            android:id="@+id/subTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="#000000"
+                            android:text="-"
+                            android:layout_alignParentRight="true"
+                            />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/subTotal"
+                            android:backgroundTint="#8d99ae"
+                            android:background="@drawable/lines"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Biaya Antar"
+                            />
+                        <TextView
+                            android:id="@+id/tvExpedisi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="#000000"
+                            android:text="Rp 20,000"
+                            android:layout_alignParentRight="true"
+                            />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/tvExpedisi"
+                            android:backgroundTint="#8d99ae"
+                            android:background="@drawable/lines"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp">
+
+                        <TextView
+                            
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="#000000"
+                            android:text="Total"
+                            />
+                        <TextView
+                            android:id="@+id/total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="#000000"
+                            android:text="-"
+                            android:layout_alignParentRight="true"
+                            />
+                </RelativeLayout>
+                
+                <Button
+                    android:layout_width="193dp"
+                    android:layout_height="48dp"
+                    android:text="Pesan Sekarang"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    style="@style/buttonText"
+                    android:background="@drawable/button"/>
+        </LinearLayout>
 
 </LinearLayout>

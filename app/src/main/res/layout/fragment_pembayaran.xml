@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:textSize="12sp"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:background="#ffffff"
             android:fontFamily="@font/poppins_regular"
             android:padding="8dp"
