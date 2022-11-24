@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cartActivity"
+    tools:context=".ui.CartActivity"
     android:gravity="center"
     android:background="#f7f7f7"
     android:orientation="vertical">
@@ -157,6 +157,7 @@
                 </RelativeLayout>
                 
                 <Button
+                    android:id="@+id/btnPayNow"
                     android:layout_width="193dp"
                     android:layout_height="48dp"
                     android:text="Pesan Sekarang"

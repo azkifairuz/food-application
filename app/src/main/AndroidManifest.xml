@@ -13,6 +13,13 @@
         android:theme="@style/Theme.FoodApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SuccessActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.ActivityPayment"
             android:exported="false">
             <meta-data
@@ -27,7 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.cartActivity"
+            android:name=".ui.CartActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

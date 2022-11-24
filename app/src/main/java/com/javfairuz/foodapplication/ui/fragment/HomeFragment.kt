@@ -1,6 +1,5 @@
 package com.javfairuz.foodapplication.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -20,9 +19,6 @@ import com.javfairuz.foodapplication.adapter.KostAdapter
 import com.javfairuz.foodapplication.adapter.LaukAdapter
 import com.javfairuz.foodapplication.adapter.PaketAdapter
 import com.javfairuz.foodapplication.models.Produk
-import com.javfairuz.foodapplication.ui.DetailActivity
-import com.javfairuz.foodapplication.ui.MainActivity
-import com.javfairuz.foodapplication.ui.cartActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

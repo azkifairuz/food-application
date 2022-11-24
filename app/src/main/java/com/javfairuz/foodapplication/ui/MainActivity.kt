@@ -1,24 +1,14 @@
 package com.javfairuz.foodapplication.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.javfairuz.foodapplication.R
 import com.javfairuz.foodapplication.SharedPreference
 import com.javfairuz.foodapplication.`interface`.Comunicator
@@ -41,6 +31,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomeFragment())
+
 
         var displayName = binding.tvUsernameProfil
         displayName.text = user!!.displayName ?:"gada username"
@@ -121,7 +112,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
     }
 
     override fun goToCart() {
-        startActivity(Intent(this@MainActivity,cartActivity::class.java))
+        startActivity(Intent(this@MainActivity,CartActivity::class.java))
     }
 
     override fun goToDetail() {

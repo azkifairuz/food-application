@@ -2,6 +2,7 @@ package com.javfairuz.foodapplication.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,14 +34,15 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentProduk = produkList[position]
-
+        val dec = DecimalFormat("#,###.##")
+        val harga = dec.format(currentProduk.harga)
         Glide.with(holder.itemView.context)
             .load(currentProduk.image)
             .apply(RequestOptions().override(93,82))
             .into(holder.imgProduk)
 
         holder.produkName.text = currentProduk.produk
-        holder.hargaProduk.text = currentProduk.harga.toString()
+        holder.hargaProduk.text ="Rp " + harga.toString()
     }
 
     fun addCartList(produkList : List<CartStorage>){

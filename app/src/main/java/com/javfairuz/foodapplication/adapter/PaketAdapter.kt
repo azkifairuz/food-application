@@ -2,6 +2,7 @@ package com.javfairuz.foodapplication.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.icu.text.DecimalFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,8 @@ class PaketAdapter(private val context: Context?) :RecyclerView.Adapter<PaketAda
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentProduk = produkList[position]
 
+        val dec = DecimalFormat("#,###.##")
+        val harga = dec.format(currentProduk.harga)
         Glide.with(holder.itemView.context)
             .load(currentProduk.image)
             .apply(RequestOptions().override(107,107))
@@ -48,7 +51,7 @@ class PaketAdapter(private val context: Context?) :RecyclerView.Adapter<PaketAda
             context?.startActivity(goToDetail)
         }
         holder.produkName.text = currentProduk.produk
-        holder.hargaProduk.text = currentProduk.harga.toString()
+        holder.hargaProduk.text = "Rp " + harga.toString()
     }
 
     fun addProdukList(produkList : List<Produk>){
