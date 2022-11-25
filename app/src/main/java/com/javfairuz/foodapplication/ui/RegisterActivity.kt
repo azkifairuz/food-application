@@ -49,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.tvRegister.setOnClickListener{
             val intentToLogin = Intent(this@RegisterActivity,LoginActivity::class.java)
             startActivity(intentToLogin)
+            finish()
         }
         binding.registerButton.setOnClickListener{
             val email = binding.edtEmailRegister.text.toString().trim()
@@ -92,7 +93,7 @@ class RegisterActivity : AppCompatActivity() {
             RegisterFirebase(email,password,username)
         }
     }
-
+    //function buat register, jdi dia bakal ambil inputan user dri email passwor sm username terus klo berhasil ditambah ke firebase
     private fun RegisterFirebase(email: String, password: String,username: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){

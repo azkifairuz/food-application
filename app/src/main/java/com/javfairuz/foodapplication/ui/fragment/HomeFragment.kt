@@ -111,13 +111,6 @@ class HomeFragment : Fragment() {
         produkRecyclerview.setHasFixedSize(true)
         produkRecyclerview.adapter = adapterRegular
 
-        adapterRegular.setOnItemClickCallback(object : HomeAdapter.OnItemClickCallback{
-            override fun onItemClicked(position: Int) {
-                comunicator.goToDetail()
-
-                Toast.makeText(context, "$position", Toast.LENGTH_SHORT).show()
-            }
-        })
 
         val rvMenuPaket :RecyclerView = view.findViewById(R.id.rvMenuPaket)
         rvMenuPaket.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
@@ -138,8 +131,12 @@ class HomeFragment : Fragment() {
 
 
     }
+    //function buat ngambil data dri firebase
     fun getDataRegular(){
+        //abaikan ini cuman buat debugging
         Log.e("T","berhasil1")
+
+
         //mengambil data kategori regular
         val da =ref.child("products").orderByChild("category")
             .equalTo("regular").get()
@@ -158,6 +155,7 @@ class HomeFragment : Fragment() {
         }.addOnFailureListener {
             Log.e("T","berhasil3 ${it.message}")
         }
+
         //mengambil data categpry kost
         val dataKost =ref.child("products").orderByChild("category")
             .equalTo("kost").get()

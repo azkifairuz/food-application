@@ -125,10 +125,13 @@ class ActivityPayment : AppCompatActivity() {
             paymentSucces.putExtra(SuccessActivity.EXTRA_METHOD,metodePembayaran)
             paymentSucces.putExtra(SuccessActivity.EXTRA_SUBTOTAL,harga)
             paymentSucces.putExtra(SuccessActivity.EXTRA_TOTAL,totalFinal)
+
             Toast.makeText(this, "pembayaran berhasil", Toast.LENGTH_SHORT).show()
             Handler().postDelayed({
-                startActivity(Intent(this@ActivityPayment,MainActivity::class.java))
+                startActivity(Intent(this,MainActivity::class.java))
+                finish()
             }, 5000)
+
             deleteData()
             startActivity(paymentSucces)
             finish()
@@ -137,7 +140,6 @@ class ActivityPayment : AppCompatActivity() {
             startActivity(Intent(this@ActivityPayment,CartActivity::class.java))
             finish()
         }
-
 
     }
 

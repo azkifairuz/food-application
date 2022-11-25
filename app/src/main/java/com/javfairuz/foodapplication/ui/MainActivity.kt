@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
         setContentView(binding.root)
         replaceFragment(HomeFragment())
 
-
+        //buat ngubah nama dan email default di profil jdi nama sama email yg sesuai sama akun di firebase
         var displayName = binding.tvUsernameProfil
         displayName.text = user!!.displayName ?:"gada username"
         var displayEmail = binding.tvEmailProfil
@@ -55,16 +55,17 @@ class MainActivity : AppCompatActivity(),Comunicator {
             sharedPref.clearSession()
             auth.signOut()
             Toast.makeText(this, "berhasil Logout", Toast.LENGTH_SHORT).show()
-            val logoutIntent = Intent(this@MainActivity,FirstPageActivity::class.java)
+            val logoutIntent = Intent(this,FirstPageActivity::class.java)
             startActivity(logoutIntent)
             finish()
         }
 
 
-
+        //ini buat navigasi yg dibawah itu yg buat pindah pindah page, setiap page pake fragment biar pas pindah smooth dan bisa di stack
         binding.bottomNav.setOnItemSelectedListener {
 
             when(it.itemId){
+                //kalo logo home di pencet bakal muncul tammpilan home
                 R.id.action_home ->{ replaceFragment(HomeFragment())
                     binding.header.visibility = View.VISIBLE
                 }

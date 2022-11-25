@@ -26,21 +26,26 @@ import com.javfairuz.foodapplication.ui.fragment.Text3Fragment
 class FirstPageActivity : AppCompatActivity(),View.OnClickListener {
 
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_page_activity)
+        //autentikasi user
         auth = FirebaseAuth.getInstance()
-        val vp:ViewPager2 = findViewById(R.id.vpFirstPage)
-        val adapter = MyViewPagerAdapter(this.supportFragmentManager,lifecycle)
-        vp.adapter = adapter
+
+
         var btnFirst: Button = findViewById(R.id.firstButton)
         btnFirst.setOnClickListener(this)
+        //cek udh ada user atau belum
         if (auth.currentUser == null){
             Toast.makeText(this, "selamat datang ", Toast.LENGTH_SHORT).show()
         }else{
             startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
+        val vp:ViewPager2 = findViewById(R.id.vpFirstPage)
+        val adapter = MyViewPagerAdapter(this.supportFragmentManager,lifecycle)
+        vp.adapter = adapter
     }
 
 
@@ -49,6 +54,7 @@ class FirstPageActivity : AppCompatActivity(),View.OnClickListener {
             R.id.firstButton->{
                 var moveToLoginPage = Intent(this@FirstPageActivity, LoginActivity::class.java)
                 startActivity(moveToLoginPage)
+
             }
         }
     }

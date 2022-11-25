@@ -309,12 +309,14 @@
                     android:editable="false"
                     android:background="@null"
                     android:layout_width="wrap_content"
+
                     android:textColor="#333333"
                     android:textSize="15sp"
                     android:fontFamily="@font/poppins_regular"
                     android:textColorHint="@color/black"
                     android:layout_height="wrap_content"
                     android:text="Telanai Pura,Kota Jambi"/>
+
                 <EditText
                     android:id="@+id/subAlamat"
                     android:editable="false"
@@ -333,6 +335,7 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/pemcil"/>
+
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"

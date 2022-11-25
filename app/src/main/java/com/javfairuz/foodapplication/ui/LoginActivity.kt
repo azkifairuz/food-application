@@ -40,13 +40,17 @@ class LoginActivity : AppCompatActivity() {
         sharedPref = SharedPreference(this@LoginActivity)
 
         auth = FirebaseAuth.getInstance()
+
         binding.tvDaftar.setOnClickListener{
             val intentToRegister = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intentToRegister)
+            finish()
         }
 
         showpassword = findViewById(R.id.cbPasswordLogin)
         edtPassword = findViewById(R.id.edtPasswordLogin)
+
+        //hidden passoword
         showpassword.setOnClickListener{
             if(showpassword.isChecked){
                 showpassword.background = resources.getDrawable(R.drawable.open_eye)
@@ -60,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.edtEmailLogin.text.toString().trim()
             val password = binding.edtPasswordLogin.text.toString()
             //validasi email
-
+            //kalo email kosong usaer dipaksa buat masukin email
             if (email.isEmpty()){
                 binding.edtEmailLogin.error = "Email Harus diisi"
                 binding.edtEmailLogin.requestFocus()
@@ -68,12 +72,14 @@ class LoginActivity : AppCompatActivity() {
             }
 
             //validasi jika bukan email
+            //kalo formatnya bukan email juga gabisa
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 binding.edtEmailLogin.error = "email tidak valid"
                 binding.edtEmailLogin.requestFocus()
                 return@setOnClickListener
             }
             //valiasi password
+            //ini kalo password nya kosing juga user bkl dipaksa buat ngisi
             if (password.isEmpty()){
                 binding.edtPasswordLogin.error = "password tidak boleh kosong "
                 binding.edtPasswordLogin.requestFocus()
@@ -87,6 +93,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     override fun onStart() {
+
         super.onStart()
         if(auth.currentUser != null){
             val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
@@ -94,21 +101,23 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-
+    //function buat ngecek apakah username yg ditulis sama user itu adaa difirebase
     private fun LoginFirebase(email: String, password: String) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){
+                    //kalo akunya ada di firebase dia bkl langsung masuk
                     if (it.isSuccessful){
 
                         sharedPref.setSessionString(PREF_USERNAME, binding.edtEmailLogin.text.toString())
                         sharedPref.setSessionString(PREF_PASSWORD, binding.edtPasswordLogin.text.toString())
                         sharedPref.setSessionBool(PREF_IS_LOGIN, true)
                         Toast.makeText(this,"selamat datang $email", Toast.LENGTH_SHORT).show()
-                        val intentToMain = Intent(this@LoginActivity, MainActivity::class.java)
+                        val intentToMain = Intent(this, MainActivity::class.java)
                         startActivity(intentToMain)
                         finish()
 
                     }else{
+                        //kalo ngga ada dia bkl nampilin pesan alasan knp si user gabisa masuk?
                         Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }

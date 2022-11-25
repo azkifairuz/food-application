@@ -24,22 +24,16 @@ import com.javfairuz.foodapplication.ui.fragment.HomeFragment
 
 class HomeAdapter(private val context: Context?  ): RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
     private val produkList = ArrayList<Produk>()
-    private lateinit var  mListener : OnItemClickCallback
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.card_product,parent,false
         )
 
-        return MyViewHolder(itemView,mListener)
+        return MyViewHolder(itemView)
     }
 
-    interface OnItemClickCallback {
-        fun onItemClicked(position: Int)
-    }
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-       mListener = onItemClickCallback
-    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentProduk = produkList[position]
@@ -62,24 +56,18 @@ class HomeAdapter(private val context: Context?  ): RecyclerView.Adapter<HomeAda
     }
 
     override fun getItemCount() = produkList.size
-
+    //function tambah data
     fun addProdukList(produkList : List<Produk>){
         this.produkList.clear()
         this.produkList.addAll(produkList)
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(itemView : View,listener : OnItemClickCallback) :RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView : View) :RecyclerView.ViewHolder(itemView){
         val produkName : TextView = itemView.findViewById(R.id.namaProduk)
         val hargaProduk : TextView = itemView.findViewById(R.id.hargaProduk)
         val imgProduk : ImageView = itemView.findViewById(R.id.imgProduk)
 
-        init {
-
-            itemView.setOnClickListener {
-                listener.onItemClicked(bindingAdapterPosition)
-            }
-        }
     }
 
 }
