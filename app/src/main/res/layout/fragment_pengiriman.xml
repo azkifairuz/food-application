@@ -13,6 +13,7 @@
         android:layout_marginTop="40dp"
         >
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,14 +44,79 @@
                 android:backgroundTint="#333333"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button"
-               android:layout_marginTop="115dp">
+               android:layout_marginTop="115dp"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nomor Pesanan"
+                        android:layout_marginTop="15dp"
+                        android:textAlignment="center"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/tvNomorPesanan"
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FF1241424GRT7277"
+                        android:textSize="12sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"/>
+                    <View
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="190dp"
+                        android:layout_height="2dp"
+                        android:backgroundTint="@color/oren"
+                        android:background="@drawable/lines"/>
+                </LinearLayout>
+                <View
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="20dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/ic_mobil"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="Belum ada pesanan"
                     android:textColor="@color/white"
-                    android:layout_gravity="center_vertical"/>
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginTop="5dp"
+                    android:text="Catering Dapur Kuliner"/>
+                <View
+                    android:layout_width="5dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_dotted"/>
+                <View
+                    android:layout_width="10dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="14dp"
+                    android:backgroundTint="@color/oren"
+                    android:background="@drawable/alamat_icon"/>
+                <TextView
+                    android:id="@+id/tvAlamatUser"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="213dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_marginTop="5dp"
+                    android:text="Jln. Kamboja II, RT. 12, Telanai Pura, Jambi"/>
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -58,6 +124,7 @@
                 android:layout_gravity="center_horizontal"
                 >
                 <Button
+
                     android:id="@+id/btnPesan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,7 +135,7 @@
                     android:textColor="@color/white"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/button"
-                    android:text="pesan sesuatu"/>
+                    android:text="dalam proses"/>
             </RelativeLayout>
         </FrameLayout>
     </LinearLayout>

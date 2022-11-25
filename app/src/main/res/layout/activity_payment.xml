@@ -70,7 +70,6 @@
                 android:textColor="#333333" />
             <RadioButton
                 android:id="@+id/rbMasterCard"
-
                 android:layout_width="12dp"
                 android:layout_height="11dp"
                 android:layout_marginTop="8dp"
@@ -90,13 +89,14 @@
             android:layout_marginTop="15dp"
             android:layout_marginHorizontal="5dp"
             android:gravity="center_vertical">
+
             <View
                 android:id="@+id/bankTransfer"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="19dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/card"/>
+                android:background="@drawable/card" />
 
             <TextView
                 android:id="@+id/tvBankTransfer"
@@ -257,17 +257,18 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginStart="19dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="25dp"
                 android:background="@drawable/ic_dana"/>
 
             <TextView
                 android:id="@+id/tvDana"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/dana"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Dana"
-                android:layout_toEndOf="@id/dana"
                 android:textColor="#333333" />
+
             <RadioButton
                 android:clickable="false"
                 android:id="@+id/rbDana"
@@ -286,33 +287,81 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="19dp">
+            android:text="Alamat Pengantaran"
+            android:textColor="@color/black"
+            />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/alamat"
+                    android:editable="false"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Telanai Pura,Kota Jambi"/>
+                <EditText
+                    android:id="@+id/subAlamat"
+                    android:editable="false"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="10sp"
+                    android:layout_below="@id/alamat"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColorHint="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Jln. kamboja II "/>
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/pemcil"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp">
 
-            <TextView
-                android:id="@+id/tvtotalPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="#000000"
-                android:text="Total Price"
-                />
-            <TextView
-                android:id="@+id/totalPayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="#000000"
-                android:text="-"
-                android:paddingStart="1dp"
-                android:layout_below="@id/tvtotalPrice"
-                />
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvtotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#000000"
+                    android:text="Total Price"
+                    />
+                <TextView
+                    android:id="@+id/totalPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="#000000"
+                    android:text="-"
+                    android:paddingStart="1dp"
+                    android:layout_below="@id/tvtotalPrice"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
     </LinearLayout>
     <Button
         android:id="@+id/btnPay"

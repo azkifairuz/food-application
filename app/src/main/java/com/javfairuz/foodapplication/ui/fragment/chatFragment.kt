@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.javfairuz.foodapplication.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,5 +58,13 @@ class chatFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var fab:FloatingActionButton = view.findViewById(R.id.fab)
+        fab.setOnClickListener{
+            Toast.makeText(context, "Maaf fitur belum tersedia", Toast.LENGTH_SHORT).show()
+        }
     }
 }

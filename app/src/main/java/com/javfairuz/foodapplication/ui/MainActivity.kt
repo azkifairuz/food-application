@@ -60,13 +60,17 @@ class MainActivity : AppCompatActivity(),Comunicator {
             finish()
         }
 
+
+
         binding.bottomNav.setOnItemSelectedListener {
 
             when(it.itemId){
                 R.id.action_home ->{ replaceFragment(HomeFragment())
                     binding.header.visibility = View.VISIBLE
                 }
-                R.id.action_chat -> replaceFragment(chatFragment())
+                R.id.action_chat -> {replaceFragment(chatFragment())
+                    binding.header.visibility = View.GONE
+                }
                 R.id.action_pembayaran -> { replaceFragment(PembayaranFragment())
                     binding.header.visibility = View.GONE
                 }

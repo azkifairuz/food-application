@@ -1,5 +1,6 @@
 package com.javfairuz.foodapplication.ui
 
+import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.icu.text.NumberFormat
 import androidx.appcompat.app.AppCompatActivity
@@ -101,6 +102,9 @@ class DetailActivity : AppCompatActivity() {
 
             pushData(produkName!!,imageProduk!!,hargaProduk!!)
         }
+        binding.profilNav.setOnClickListener {
+            startActivity(Intent(this@DetailActivity,MainActivity::class.java))
+        }
 
     }
 
@@ -114,7 +118,7 @@ class DetailActivity : AppCompatActivity() {
             Log.e("cek", "clicked")
             ref.child("cart").child(uid).child(produk).setValue(CartData).addOnCompleteListener() {
                 Log.e("push data", "succes")
-                Toast.makeText(this@DetailActivity, "Add Data Succes!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@DetailActivity, "Behasil Menambahkan!", Toast.LENGTH_LONG).show()
             }.addOnFailureListener {
                 Toast.makeText(this@DetailActivity, "${it.message.toString()}", Toast.LENGTH_LONG).show()
                 Log.e("error", it.message.toString())

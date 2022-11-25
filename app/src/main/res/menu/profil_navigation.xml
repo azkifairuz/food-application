@@ -13,7 +13,7 @@
             
         android:id="@+id/notification_menu"
             android:icon="@drawable/notification_stroke"
-        android:title="Notiffication" />
+        android:title="Notification" />
         <item
         android:id="@+id/item3"
             android:icon="@drawable/receipt_icon"

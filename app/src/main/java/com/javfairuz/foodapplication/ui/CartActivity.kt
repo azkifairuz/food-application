@@ -50,17 +50,21 @@ class CartActivity : AppCompatActivity() {
         myRv.adapter = adapterCart
 
 
-        var totalPrice = findViewById<TextView>(R.id.total)
+
 
         binding.btnPayNow.setOnClickListener {
             val payIntent = Intent(this@CartActivity,ActivityPayment::class.java)
             payIntent.putExtra(ActivityPayment.EXTRA_NAME, subTotal + 20000)
             payIntent.putExtra(ActivityPayment.EXTRA_HARGA,subTotal + 20000)
-
             startActivity(payIntent)
+            finish()
         }
 
-
+        binding.backButton.setOnClickListener {
+            val backIntent = Intent(this@CartActivity,MainActivity::class.java)
+            startActivity(backIntent)
+            finish()
+        }
 
 
     }

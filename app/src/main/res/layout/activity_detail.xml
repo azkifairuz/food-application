@@ -32,7 +32,7 @@
                     <View
                         android:id="@+id/profil_nav"
                         android:layout_width="15dp"
-                        android:layout_height="20dp"
+                        android:layout_height="24dp"
                         android:backgroundTint="@color/white"
                         android:background="@drawable/backl_icon"/>
                     <View
@@ -92,8 +92,8 @@
                             android:layout_height="wrap_content" android:orientation="vertical">
                             <TextView
                                 android:id="@+id/tvProdukName"
-                                android:layout_width="139dp"
-                                android:layout_height="30dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Nama Produk"
                                 android:fontFamily="@font/poppins_regular"
                                 android:capitalize="sentences"

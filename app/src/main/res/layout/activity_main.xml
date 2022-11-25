@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainActivity"
     android:orientation="vertical"
-    android:background= "#F9F9F9"
+    android:background= "#F7F7F7"
     >
     <RelativeLayout
         android:id="@+id/header"
@@ -56,7 +56,7 @@
                 android:layout_gravity="center_vertical"/>
 
             <EditText
-
+                android:id="@+id/serch_produk"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:textSize="12sp"
