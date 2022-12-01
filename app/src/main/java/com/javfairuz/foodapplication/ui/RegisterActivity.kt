@@ -94,7 +94,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     //function buat register, jdi dia bakal ambil inputan user dri email passwor sm username terus klo berhasil ditambah ke firebase
-    private fun RegisterFirebase(email: String, password: String,username: String) {
+    fun RegisterFirebase(email: String, password: String,username: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
                 if (it.isSuccessful){

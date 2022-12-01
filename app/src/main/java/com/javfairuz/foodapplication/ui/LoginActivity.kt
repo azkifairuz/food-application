@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     //function buat ngecek apakah username yg ditulis sama user itu adaa difirebase
-    private fun LoginFirebase(email: String, password: String) {
+    fun LoginFirebase(email: String, password: String) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){
                     //kalo akunya ada di firebase dia bkl langsung masuk
