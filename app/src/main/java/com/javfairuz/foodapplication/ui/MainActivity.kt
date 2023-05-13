@@ -17,6 +17,8 @@ import com.javfairuz.foodapplication.ui.fragment.*
 
 class MainActivity : AppCompatActivity(),Comunicator {
 
+    //FauzanTest
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref : SharedPreference
     private lateinit var layout : View
